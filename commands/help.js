@@ -13,7 +13,7 @@ module.exports = {
         i = 0
 
         if (!catagory) {
-            let helpembed = new MessageEmbed()
+            const helpembed = new MessageEmbed()
                 .setTitle(`${client.user.username} commands`)
                 .setColor("RED")
                 .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
@@ -27,11 +27,10 @@ module.exports = {
                     i = 0
                 }
             });
-
         } else {
             let showncatagory = catagory.charAt(0).toUpperCase() + catagory.slice(1)
 
-            let helpembed = new MessageEmbed()
+            const helpembed = new MessageEmbed()
                 .setTitle(`${showncatagory} commands`)
                 .setColor("RED")
                 .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
@@ -42,7 +41,7 @@ module.exports = {
                     string += `**${prefix}${command.name}**  ${command.usage}\n${command.description}\n`
                 }
             })
-            
+
             helpembed.setDescription(string)
         }
         message.channel.send({ embeds: [helpembed] })
