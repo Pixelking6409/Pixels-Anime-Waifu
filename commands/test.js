@@ -3,8 +3,8 @@ module.exports = {
     aliases: ["hello"],
     cooldown: 10,
 
-    execute(message, arg) {
-        let yes = arg[1]
+    execute(message, args) {
+        let yes = args[0]
         message.channel.send(`Works ${yes}`)
     }
 }
