@@ -28,7 +28,7 @@ module.exports = {
 
                 helpembed.setDescription(string)
                 message.channel.send({ embeds: [helpembed] })
-            }
+            });
         }
     }
 }
