@@ -15,7 +15,7 @@ module.exports = {
         commands = client.commands
         for (let command of commands) {
             if (command.type === catagory) {
-                helpembed.addField({ name: command.name, value: command.description, inline: true })
+                helpembed.addField({ name: `${command.name}`, value: `${command.description}`, inline: true })
             }
             i += 1
             if (i = 3) {
