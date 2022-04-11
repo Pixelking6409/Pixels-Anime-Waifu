@@ -1,7 +1,7 @@
 module.exports = {
     name: "prefix",
     aliases: ["commands"],
-    type: utility,
+    type: "utility",
 
     execute(message) {
         
