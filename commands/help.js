@@ -8,18 +8,22 @@ module.exports = {
 
     execute(message, args, client) {
         let catagory = args[0].toLowerCase()
+        let prefix = client.prefix
+
         if (!catagory) {
 
         } else {
             let helpembed = new MessageEmbed()
-                .setTitle(`${catagory} commands`)
+                .setTitle(`${catagory.charAt(0).toUpperCase() + str.slice(1)} commands`)
                 .setColor("RED")
 
 
             let string = '';
             client.commands.forEach(command => {
                 console.log(command)
-                string += `**${command.name}**  ${command.usage}\n${command.description}`
+                if (command.usage === catagory) {
+                    string += `**${prefix}${command.name}**  ${command.usage}\n${command.description}\n`
+                }
             })
 
             helpembed.setDescription(string)
