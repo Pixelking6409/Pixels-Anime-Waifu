@@ -1,4 +1,5 @@
 {
     "token": "Token-Here",
-    "prefix": "!"
+    "prefix": "!",
+    "mongodb": "Database connection string here"
 }

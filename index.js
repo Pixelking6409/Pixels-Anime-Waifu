@@ -1,5 +1,6 @@
 const { Client, Intents, Collection } = require('discord.js');
 const fs = require("fs");
+const mongoose = require('mongoose');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_MEMBERS] });
 client.commands = new Collection();
@@ -32,5 +33,11 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args, client))
     }
 }
+mongoose.connect(process.env.mongodb, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+})
+.then(() => console.log("Database connected"))
+.catch((err) => console.log(`Database connection failed\n${err}`))
 
 client.login(process.env.token)

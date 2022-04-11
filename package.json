@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Pixelking6409/Discord-Bot-Template-v13#readme",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "mongoose": "^6.2.10"
   }
 }
