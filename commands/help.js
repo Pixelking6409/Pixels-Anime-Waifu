@@ -18,9 +18,9 @@ module.exports = {
                 .setColor("RED")
                 .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
 
-            const commandSubFolders = fs.readdirSync('./commands/')
+            const commandSubFolders = fs.readdirSync('./commands/').filter(function (file) {return fs.statSync(file).isFile();})
             commandSubFolders.forEach(folder => {
-                helpembed.addField(`${prefix}${folder}`, `Get help for ${folder} commands`, true)
+                helpembed.addField(`${prefix}help ${folder}`, `Get help for ${folder} commands`, true)
                 i += 1
                 if (i = 3) {
                     helpembed.addField('\u200B', '\u200B')

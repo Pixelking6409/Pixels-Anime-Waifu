@@ -4,7 +4,8 @@ const cooldowns = new Collection();
 module.exports = {
     name: 'messageCreate',
     execute(message, client) {
-        const prefix = client.config.prefix
+        const prefix = client.prefix
+        client.prefix = prefix
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const commandName = args.shift().toLowerCase();
         if (message.content.charAt(0) != prefix) return;
