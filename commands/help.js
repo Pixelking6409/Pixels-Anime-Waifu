@@ -12,7 +12,7 @@ module.exports = {
             .setTitle(`${catagory} commands`)
             .setColor("RED")
 
-        commands = client.commands
+        commands = client.commands.get()
         let string = '';
         for (let command of commands) {
             if (command.type === catagory) {
