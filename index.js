@@ -32,5 +32,4 @@ for (const file of eventFiles) {
     }
 }
 
-console.log(client.commands)
 client.login(process.env.token)

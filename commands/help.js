@@ -8,13 +8,14 @@ module.exports = {
 
     execute(message, args, client) {
         let catagory = args[0].toLowerCase()
+        let showncatagory = catagory.charAt(0).toUpperCase() + catagory.slice(1)
         let prefix = client.prefix
 
         if (!catagory) {
 
         } else {
             let helpembed = new MessageEmbed()
-                .setTitle(`${catagory.charAt(0).toUpperCase() + str.slice(1)} commands`)
+                .setTitle(`${showncatagory} commands`)
                 .setColor("RED")
 
 
@@ -28,6 +29,6 @@ module.exports = {
 
             helpembed.setDescription(string)
             message.channel.send({ embeds: [helpembed] })
-        }
+        } 
     }
 }
