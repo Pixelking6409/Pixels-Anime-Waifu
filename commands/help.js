@@ -22,7 +22,7 @@ module.exports = {
             commandSubFolders.forEach(folder => {
                 helpembed.addField(`${prefix}help ${folder}`, `Get help for ${folder} commands`, true)
                 i += 1
-                if (i = 3) {
+                if (i == 3) {
                     helpembed.addField('\u200B', '\u200B')
                     i = 0
                 }
