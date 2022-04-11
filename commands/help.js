@@ -7,7 +7,7 @@ module.exports = {
     cooldown: 10,
 
     execute(message, args, client) {
-        let catagory = args[0].toLowerCase()
+        let catagory = args[0]
         let prefix = client.prefix
         let string = '';
         i = 0
@@ -38,7 +38,7 @@ module.exports = {
 
             client.commands.forEach(command => {
                 console.log(command)
-                if (command.type === catagory) {
+                if (command.type === catagory.toLowerCase()) {
                     string += `**${prefix}${command.name}**  ${command.usage}\n${command.description}\n`
                 }
             })
