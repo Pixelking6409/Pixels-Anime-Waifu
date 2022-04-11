@@ -1,0 +1,22 @@
+{
+  "name": "discord-bot-template-v13",
+  "version": "1.0.0",
+  "description": "A discord template for discord.js v13",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixelking6409/Discord-Bot-Template-v13.git"
+  },
+  "author": "PixelIsGarb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pixelking6409/Discord-Bot-Template-v13/issues"
+  },
+  "homepage": "https://github.com/Pixelking6409/Discord-Bot-Template-v13#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
