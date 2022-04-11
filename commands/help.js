@@ -9,7 +9,6 @@ module.exports = {
     execute(message, args, client) {
         let catagory = args[0]
         let prefix = client.prefix
-        let string = '';
         i = 0
 
         if (!catagory) {
@@ -21,7 +20,7 @@ module.exports = {
             const commandSubFolders = fs.readdirSync('./commands/').filter(f => !f.endsWith('.js'))
             console.log(commandSubFolders)
             commandSubFolders.forEach(folder => {
-                helpembed.addField(`${prefix}help ${folder}`, `Get help for ${folder} commands`, true)
+                helpembed.addField(`**${prefix}help ${folder}**`, `Get help for ${folder} commands`, true)
                 i += 1
                 if (i == 3) {
                     helpembed.addField('\u200B', '\u200B')
@@ -38,13 +37,16 @@ module.exports = {
                 .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
 
             client.commands.forEach(command => {
-                console.log(command)
                 if (command.type === catagory.toLowerCase()) {
-                    string += `**${prefix}${command.name}**  ${command.usage}\n${command.description}\n`
+                    helpembed.addField(`**${prefix}${command.name}**  ${command.usage}`, command.description, true)
+                    i += 1
+                    if (i == 3) {
+                        helpembed.addField('\u200B', '\u200B')
+                        i = 0
+                    }
                 }
             })
 
-            helpembed.setDescription(string)
             message.channel.send({ embeds: [helpembed] })
         }
     }
