@@ -22,7 +22,7 @@ module.exports = {
                 
                 let string = '';
                 commands.forEach((f, i) => {
-                    command = client.commands.get()
+                    command = client.commands.get(f)
                     string += `**${command.name}**  ${command.usage}\n${command.description}`
                 })
 
