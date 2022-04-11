@@ -7,22 +7,19 @@ module.exports = {
 
     execute(message, args, client) {
         let catagory = args[0].toLowerCase()
-        i = 0
 
         let helpembed = new MessageEmbed()
             .setTitle(`${catagory} commands`)
+            .setColor("RED")
 
         commands = client.commands
+        let string = '';
         for (let command of commands) {
             if (command.type === catagory) {
-                helpembed.addField({ name: `${command.name}`, value: `${command.description}`, inline: true })
-            }
-            i += 1
-            if (i = 3) {
-                helpembed.addField({ name: '\u200B', value: '\u200B' })
-                i = 1
+                string += `\`\`\`${command.name}\`\`\`  ${command.usage}\n${command.description}`
             }
         }
+        helpembed.setDescription(string)
 
         message.channel.send({ embeds: [helpembed] })
     }
