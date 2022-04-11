@@ -42,8 +42,9 @@ module.exports = {
                     string += `**${prefix}${command.name}**  ${command.usage}\n${command.description}\n`
                 }
             })
+            
+            helpembed.setDescription(string)
         }
-        helpembed.setDescription(string)
         message.channel.send({ embeds: [helpembed] })
     }
 }
