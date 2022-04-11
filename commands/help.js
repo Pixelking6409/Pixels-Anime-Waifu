@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const fs = require("fs");
 
 module.exports = {
     name: "help",
@@ -7,20 +8,27 @@ module.exports = {
 
     execute(message, args, client) {
         let catagory = args[0].toLowerCase()
+        if (!catagory) {
 
-        let helpembed = new MessageEmbed()
-            .setTitle(`${catagory} commands`)
-            .setColor("RED")
+        } else {
+            fs.readdir(`./commands/${catagory}`, (err, files) => {
+                if (err) console.error(err);
+                let commands = files.filter(f => f.split(".").pop() === "js");
 
-        commands = client.commands.get()
-        let string = '';
-        for (let command of commands) {
-            if (command.type === catagory) {
-                string += `**${command.name}**  ${command.usage}\n${command.description}`
+                let helpembed = new MessageEmbed()
+                    .setTitle(`${catagory} commands`)
+                    .setColor("RED")
+
+                
+                let string = '';
+                commands.forEach((f, i) => {
+                    command = client.commands.get()
+                    string += `**${command.name}**  ${command.usage}\n${command.description}`
+                })
+
+                helpembed.setDescription(string)
+                message.channel.send({ embeds: [helpembed] })
             }
         }
-        helpembed.setDescription(string)
-
-        message.channel.send({ embeds: [helpembed] })
     }
 }
