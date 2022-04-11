@@ -16,7 +16,7 @@ module.exports = {
         let string = '';
         for (let command of commands) {
             if (command.type === catagory) {
-                string += `\`\`\`${command.name}\`\`\`  ${command.usage}\n${command.description}`
+                string += `**${command.name}**  ${command.usage}\n${command.description}`
             }
         }
         helpembed.setDescription(string)
