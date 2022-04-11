@@ -19,6 +19,7 @@ module.exports = {
                 .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
 
             const commandSubFolders = fs.readdirSync('./commands/').filter(f => !f.endsWith('.js'))
+            console.log(commandSubFolders)
             commandSubFolders.forEach(folder => {
                 helpembed.addField(`${prefix}help ${folder}`, `Get help for ${folder} commands`, true)
                 i += 1
