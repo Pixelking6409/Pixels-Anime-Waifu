@@ -1,0 +1,12 @@
+module.exports = {
+    name: "name of command",
+    description: "command description",
+    usage: "arguments for the command",
+    aliases: ["other", "names", "for", "command"],
+    type: "The type of command",
+    cooldown: 3,
+
+    execute(message) {
+        
+    }
+}
