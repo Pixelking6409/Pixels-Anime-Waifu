@@ -40,7 +40,7 @@ module.exports = {
         try {
             UserData = await UserProfile.findOne({ userID: message.author.id });
             if (!UserData) {
-                let newUserData = await new UserData({
+                let newUserData = await UserData.create({
                     userID: message.id,
                     coins: 1000,
                     bank: 0,
