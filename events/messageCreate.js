@@ -45,7 +45,7 @@ module.exports = {
                     coins: 1000,
                     bank: 0,
                 });
-                UserData.save();
+                newUserData.save();
             }
         } catch (err) {
             console.log(err);
