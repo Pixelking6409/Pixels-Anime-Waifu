@@ -1,4 +1,4 @@
-const UserBalance = require("../schema/balance.js/")
+const UserBalance = require(".../schema/money.js/")
 
 module.exports = {
     name: "balance",
