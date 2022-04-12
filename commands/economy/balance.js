@@ -25,6 +25,6 @@ module.exports = {
             console.log(err);
         }
 
-        message.channel.send(`${member.username} has ${data.Balance}`)
+        message.channel.send(`${member.id} has ${data.Balance}`)
     }
 }
