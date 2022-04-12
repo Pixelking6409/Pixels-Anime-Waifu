@@ -4,7 +4,7 @@ const UserProfile = require("../schema/UserProfile")
 
 module.exports = {
     name: 'messageCreate',
-    execute(message, client) {
+    async execute(message, client) {
         const prefix = client.prefix
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const commandName = args.shift().toLowerCase();
