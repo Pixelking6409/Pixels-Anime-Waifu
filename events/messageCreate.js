@@ -1,6 +1,6 @@
 const { Collection, MessageEmbed } = require('discord.js');
 const cooldowns = new Collection();
-const UserProfile = require("../schema/UserProfile")
+const UserProfile = require("../../schema/UserProfile")
 
 module.exports = {
     name: 'messageCreate',
