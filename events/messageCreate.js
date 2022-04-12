@@ -36,11 +36,11 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        let UserData;
+        let AuthorUserData;
         try {
-            UserData = await UserProfile.findOne({ userID: message.author.id });
+            AuthorUserData = await UserProfile.findOne({ userID: message.author.id });
             if (!UserData) {
-                let newUserData = await UserData.create({
+                let newAuthorUserData = await UserData.create({
                     userID: message.id,
                     coins: 1000,
                     bank: 0,
@@ -51,8 +51,34 @@ module.exports = {
             console.log(err);
         }
 
+        let member = message.mentions.users.first() || message.guild.members.cache.get(args[0])
+
+        if (!member) {
+            console.log("No mentioned user")
+        }
+        else {
+            let MessageUserData;
+            try {
+                MessageUserData = await UserProfile.findOne({ userID: member.id });
+                if (!UserData) {
+                    let newMessageUserData = await UserData.create({
+                        userID: message.id,
+                        coins: 1000,
+                        bank: 0,
+                    });
+                    newMessageUserData.save();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
         try {
-            command.execute(message, args, client, UserData);
+            if (!member) {
+                command.execute(message, args, client, AuthorUserData);
+            } else {
+                command.execute(message, args, client, AuthorUserData, MessageUserData);
+            }
         } catch (error) {
             console.error(error)
             message.reply("There was an error executing that command.").catch(console.error);
