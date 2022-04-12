@@ -1,5 +1,6 @@
 const { Collection, MessageEmbed } = require('discord.js');
 const cooldowns = new Collection();
+const UserProfile = require("../schema/UserProfile")
 
 module.exports = {
     name: 'messageCreate',
@@ -35,8 +36,23 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+        let UserData;
         try {
-            command.execute(message, args, client);
+            UserData = await UserProfile.findOne({ userID: message.author.id });
+            if (!UserData) {
+                let newUserData = await UserData.create({
+                    userID: message.id,
+                    coins: 1000,
+                    bank: 0,
+                });
+                UserData.save();
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
+        try {
+            command.execute(message, args, client, UserData);
         } catch (error) {
             console.error(error)
             message.reply("There was an error executing that command.").catch(console.error);
