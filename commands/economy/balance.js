@@ -14,13 +14,12 @@ module.exports = {
         let data = UserBalance.findOne({ User: member.id }) 
 
         if (!data) {
-            let data = new UserBalance(
-                {
+            let newdata = new UserBalance({
                     User: member.id,
                     Balance: 0,
-                }
-            )
-            data.save()
+                })
+            newdata.save()
+            return message.channel.send(`${member.username} has ${newdata.Balance}`)
         }
 
         message.channel.send(`${member.username} has ${data.Balance}`)
