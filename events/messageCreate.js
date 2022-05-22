@@ -7,6 +7,8 @@ module.exports = {
         const prefix = client.prefix
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const commandName = args.shift().toLowerCase();
+
+        if (message.channel.id === "977877261053222967" && message.content != "!verify") return message.delete();
         if (message.content.charAt(0) != prefix) return;
 
         const command = client.commands.get(commandName) || client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
