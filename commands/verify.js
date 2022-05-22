@@ -28,10 +28,12 @@ module.exports = {
             message.author.send('Timeout');
         });
 
-        if (!collected.first().content.toUpperCase() === captcha.value) return message.author.send("Verify Failed!");
-        message.author.send("Verified Successfully!");
-
-        let r = message.guild.roles.cache.get("977877260814147621");
-        message.member.roles.add(r)
+        if (collected.first().content.toUpperCase() === captcha.value) { 
+            message.author.send("Verified Successfully!")
+            let r = message.guild.roles.cache.get("977877260814147621")
+            message.member.roles.add(r)
+        } else {
+            message.author.send("Verify Failed!")
+        }
     }
 }
