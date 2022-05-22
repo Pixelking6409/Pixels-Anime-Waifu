@@ -15,13 +15,13 @@ module.exports = {
 
         let verifyembed = new MessageEmbed()
             .setTitle("Pixelater Verification")
-            .setDescription("Enter the text shown in the image below")
+            .setDescription("Enter the text shown in the image above")
             .setFooter({ text: "Verification started for " + message.author.username, iconURL: message.author.displayAvatarURL() })
             .setColor("WHITE")
 
         let msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
         let filter = () => true;
-        let answer = await firstMsg.channel.awaitMessages(filter, {
+        let answer = await msg.channel.awaitMessages(filter, {
             maxMatches: 1,
             time: 60000
         }).catch(console.log);
