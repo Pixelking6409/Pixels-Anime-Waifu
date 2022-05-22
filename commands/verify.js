@@ -19,19 +19,19 @@ module.exports = {
             .setFooter({ text: "Verification started for " + message.author.username, iconURL: message.author.displayAvatarURL() })
             .setColor("WHITE")
 
-        let msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
-        let filter = () => true;
-        msg.channel.awaitMessages(filter, {
-            maxMatches: 1,
-            time: 60000
-        })
-        .catch(console.log)
-        .then(collected => {
-            if (!collected.first().content.toUpperCase() === captcha.value) message.author.send("Verify Failed!");
-            message.author.send("Verified Successfully!");
+        const msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
+        const filter = collected => collected.author.id === message.author.id;
+        const collected = await msg.channel.awaitMessages(filter, {
+            max: 1,
+            time: 50000,
+        }).catch(() => {
+            message.author.send('Timeout');
+        });
 
-            let r = message.guild.roles.cache.get("977877260814147621");
-            message.member.roles.add(r)
-        })
+        if (!collected.first().content.toUpperCase() === captcha.value) return message.author.send("Verify Failed!");
+        message.author.send("Verified Successfully!");
+
+        let r = message.guild.roles.cache.get("977877260814147621");
+        message.member.roles.add(r)
     }
 }
