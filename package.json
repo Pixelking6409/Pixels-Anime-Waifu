@@ -1,7 +1,7 @@
 {
-  "name": "discord-bot-template-v13",
+  "name": "pixels-anime-waifu",
   "version": "1.0.0",
-  "description": "A discord template for discord.js v13",
+  "description": "A Discord Bot for Pixels Discord Server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,9 @@
   "homepage": "https://github.com/Pixelking6409/Discord-Bot-Template-v13#readme",
   "dependencies": {
     "discord.js": "^13.6.0",
-    "mongoose": "^6.2.10"
+    "discord-music-player": "^8.3.2",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
   }
 }
