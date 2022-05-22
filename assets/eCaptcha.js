@@ -78,7 +78,7 @@ const onClick = (event) => {
             let idd = BigInt(urlParams["id"]).toString()
             success.play();
             document.write("<div id ='eCaptcha' style='text-align: center;justify-content: center;display: flex;justify-content: center;align-items: center;height: 100%;width: 100%;font-family: 'Poppins', sans-serif;'><div><img src ='https://image.flaticon.com/icons/png/128/190/190411.png' width='20%'><h1>You Have Been Verified</h1><p>You Will Be Redirected in a While.</p></div></div>");
-            var url = "https://unfair-bot-production.up.railway.app/";
+            var url = "https://pixels-anime-waifu-production.up.railway.app/";
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url);

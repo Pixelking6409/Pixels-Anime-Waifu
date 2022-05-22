@@ -49,7 +49,7 @@ for (const file of eventFiles) {
 app.use(bodyParser.json());
 
 app.get('/',function(req,res) {
-    res.sendFile('./website/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.use(function (req, res, next) {
