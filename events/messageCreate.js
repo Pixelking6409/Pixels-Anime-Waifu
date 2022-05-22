@@ -1,6 +1,5 @@
 const { Collection, MessageEmbed } = require('discord.js');
 const cooldowns = new Collection();
-const UserProfile = require("../schema/UserProfile")
 
 module.exports = {
     name: 'messageCreate',
@@ -36,49 +35,8 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        let AuthorUserData;
         try {
-            AuthorUserData = await UserProfile.findOne({ userID: message.author.id });
-            if (!UserData) {
-                let newAuthorUserData = await UserData.create({
-                    userID: message.id,
-                    coins: 1000,
-                    bank: 0,
-                });
-                newUserData.save();
-            }
-        } catch (err) {
-            console.log(err);
-        }
-
-        let member = message.mentions.users.first() || message.guild.members.cache.get(args[0])
-
-        if (!member) {
-            console.log("No mentioned user")
-        }
-        else {
-            let MessageUserData;
-            try {
-                MessageUserData = await UserProfile.findOne({ userID: member.id });
-                if (!UserData) {
-                    let newMessageUserData = await UserData.create({
-                        userID: message.id,
-                        coins: 1000,
-                        bank: 0,
-                    });
-                    newMessageUserData.save();
-                }
-            } catch (err) {
-                console.log(err);
-            }
-        }
-
-        try {
-            if (!member) {
-                command.execute(message, args, client, AuthorUserData);
-            } else {
-                command.execute(message, args, client, AuthorUserData, MessageUserData);
-            }
+            command.execute(message, args, client, AuthorUserData)
         } catch (error) {
             console.error(error)
             message.reply("There was an error executing that command.").catch(console.error);
