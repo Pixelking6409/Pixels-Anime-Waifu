@@ -28,7 +28,11 @@ module.exports = {
             message.author.send('Timeout');
         });
 
-        if (collected.first().content.toUpperCase() === captcha.value) { 
+        let answer = collected.first().content
+
+        console.log(answer)
+
+        if (answer.toUpperCase() === captcha.value) { 
             message.author.send("Verified Successfully!")
             let r = message.guild.roles.cache.get("977877260814147621")
             message.member.roles.add(r)
