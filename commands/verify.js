@@ -31,7 +31,9 @@ module.exports = {
 
                     if (answer.toUpperCase() === captcha.value) {
                         let r = message.guild.roles.cache.get("977877260814147621")
+                        let r2 = message.guild.roles.cache.get("977877260839301165")
                         message.member.roles.add(r)
+                        message.member.roles.add(r2)
                         message.author.send('Verified Successfully!');
                     } else {
                         message.author.send(`Verify Failed! You answered ${answer}. The right answer is ${captcha.value}. \n Try Again!`);

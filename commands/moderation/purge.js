@@ -1,4 +1,4 @@
-const { MessageEmbed, Permissions } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
     name: "purge",
@@ -11,7 +11,7 @@ module.exports = {
     async execute(message, args, client) {
         const modchannel = client.channels.cache.get('977877262449913867');
 
-        if (!message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS)) return message.reply("You dumbass nigger you cant clear messages!")
+        if (!message.member.permissions.has('KICK_MEMBERS')) return message.reply("You dumbass nigger you cant clear messages!")
 
         if (!args[0]) return message.reply('Mention a number of messages!')
 

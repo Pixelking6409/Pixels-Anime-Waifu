@@ -1,4 +1,4 @@
-const { MessageEmbed, Permissions } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
     name: "ban",
@@ -13,7 +13,7 @@ module.exports = {
         const reason = args.slice(1).join(" ")
         const modchannel = client.channels.cache.get('977877262449913867');
 
-        if (!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)) return message.reply("You dumbass nigger you cant ban people!")
+        if (!message.member.permissions.has('BAN_MEMBERS')) return message.reply("You dumbass nigger you cant ban people!")
 
         if (!args[0]) return message.reply('Mention someone to ban!')
 

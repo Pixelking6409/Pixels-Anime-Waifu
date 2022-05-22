@@ -14,7 +14,7 @@ module.exports = {
         const reason = args.slice(2).join(" ")
         const modchannel = client.channels.cache.get('977877262449913867');
 
-        if (!message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS)) return message.reply("You dumbass nigger you cant time people out!")
+        if (!message.member.permissions.has('KICK_MEMBERS')) return message.reply("You dumbass nigger you cant time people out!")
 
         if (!args[0]) return message.reply('Mention someone to timeout!')
 
