@@ -4,7 +4,7 @@ const fs = require("fs");
 module.exports = {
     name: "help",
     aliases: ["commands"],
-    cooldown: 10,
+    cooldown: 2,
 
     execute(message, args, client) {
         let catagory = args[0]
