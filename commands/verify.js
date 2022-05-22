@@ -21,27 +21,15 @@ module.exports = {
 
         const msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
         try {
-            const filter = collected => collected.author.id === message.author.id;
-            const collected = await msg.channel.awaitMessages({
-                filter,
-                max: 1,
-                time: 50000,
-            }).catch(() => {
-                message.author.send('Timeout');
-            });
-
-            let answer = collected.first().content
-
-            console.log(answer)
-
-            if (answer.toUpperCase() === captcha.value) { 
-                message.author.send("Verified Successfully!")
-                let r = message.guild.roles.cache.get("977877260814147621")
-                message.member.roles.add(r)
-            } else {
-                message.author.send("Verify Failed!")
-            }
-        } catch(e) {
+            const filter = m => m.author.id === message.author.id;
+            msg.channel.awaitMessages({ filter, max: 1, time: 10000, errors: ['time'] })
+                .catch(() => {
+                    message.author.send('Please try again and answer in 10 seconds');
+                })
+                .then(collected => {
+                    let answer = collected.first().content
+                });
+        } catch (e) {
             console.log(e)
         }
     }
