@@ -22,9 +22,9 @@ module.exports = {
         const msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
         try {
             const filter = m => m.author.id === message.author.id;
-            msg.channel.awaitMessages({ filter, max: 1, time: 10000, errors: ['time'] })
+            msg.channel.awaitMessages({ filter, max: 1, time: 20000, errors: ['time'] })
                 .catch(() => {
-                    message.author.send('Please try again and answer in 10 seconds');
+                    message.author.send('Please try again and answer in 20 seconds!');
                 })
                 .then(collected => {
                     let answer = collected.first().content

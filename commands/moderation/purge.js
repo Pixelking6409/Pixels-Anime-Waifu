@@ -24,8 +24,8 @@ module.exports = {
                     .setFooter({ text: "Cleared by " + message.author.username, iconURL: message.author.displayAvatarURL() })
                     .setTimestamp()
 
-                message.channel.send({ embeds: [KickEmbed] })
-                modchannel.send({ embeds: [KickEmbed] })
+                message.channel.send({ embeds: [PurgeEmbed] })
+                modchannel.send({ embeds: [PurgeEmbed] })
             })
         } catch (e) {
             message.reply(`You can only delete the messages which are not older than 14 days.`)
