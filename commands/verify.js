@@ -16,7 +16,6 @@ module.exports = {
         let verifyembed = new MessageEmbed()
             .setTitle("Pixelater Verification")
             .setDescription("Enter the text shown in the image below")
-            .setImage(captcha.dataURL)
             .setFooter({ text: "Verification started for " + message.author.username, iconURL: message.author.displayAvatarURL() })
             .setColor("WHITE")
 
