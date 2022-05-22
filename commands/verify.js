@@ -20,24 +20,29 @@ module.exports = {
             .setColor("WHITE")
 
         const msg = await message.author.send({ embeds: [verifyembed], files: [captcha.JPEGStream] })
-        const filter = collected => collected.author.id === message.author.id;
-        const collected = await msg.channel.awaitMessages(filter, {
-            max: 1,
-            time: 50000,
-        }).catch(() => {
-            message.author.send('Timeout');
-        });
+        try {
+            const filter = collected => collected.author.id === message.author.id;
+            const collected = await msg.channel.awaitMessages({
+                filter,
+                max: 1,
+                time: 50000,
+            }).catch(() => {
+                message.author.send('Timeout');
+            });
 
-        let answer = collected.first().content
+            let answer = collected.first().content
 
-        console.log(answer)
+            console.log(answer)
 
-        if (answer.toUpperCase() === captcha.value) { 
-            message.author.send("Verified Successfully!")
-            let r = message.guild.roles.cache.get("977877260814147621")
-            message.member.roles.add(r)
-        } else {
-            message.author.send("Verify Failed!")
+            if (answer.toUpperCase() === captcha.value) { 
+                message.author.send("Verified Successfully!")
+                let r = message.guild.roles.cache.get("977877260814147621")
+                message.member.roles.add(r)
+            } else {
+                message.author.send("Verify Failed!")
+            }
+        } catch(e) {
+            console.log(e)
         }
     }
 }
