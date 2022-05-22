@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: "eval",
 
-    execute (client, message, args) {
+    execute (message, args, client) {
         if (message.author.id !== "330570656792182785") return;
         try {
             let input = args.join(" ")
