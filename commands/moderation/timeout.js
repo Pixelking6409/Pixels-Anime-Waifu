@@ -22,7 +22,7 @@ module.exports = {
 
         if (!target) return message.reply('I can\'t find that member!')
 
-        target.timeout({ timeout: time * 1000, reason: reason })
+        target.timeout(time * 1000, reason)
 
         let TimeoutEmbed = new MessageEmbed()
             .setTitle(`✅ ${target.username} was Timed out!`)
@@ -31,6 +31,6 @@ module.exports = {
             .setTimestamp()
 
         message.channel.send({ embeds: [TimeoutEmbed] })
-        modchannel.send({ embeds: [KickEmbed] })
+        modchannel.send({ embeds: [TimeoutEmbed] })
     }
 }
