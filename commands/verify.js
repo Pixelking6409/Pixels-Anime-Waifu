@@ -28,6 +28,15 @@ module.exports = {
                 })
                 .then(collected => {
                     let answer = collected.first().content
+
+                    if (answer.toUpperCase() === captcha.value) {
+                        let r = message.guild.roles.cache.get("")
+                        message.member.roles.add(r)
+
+                        message.author.send('Verified Successfully!');
+                    } else {
+                        message.author.send(`Verify Failed! You answered ${answer}. The right answer is ${captcha.value}. \n Try Again!`);
+                    }
                 });
         } catch (e) {
             console.log(e)
