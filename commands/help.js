@@ -15,7 +15,7 @@ module.exports = {
             let helpembed = new MessageEmbed()
                 .setTitle(`${client.user.username} commands`)
                 .setColor("RED")
-                .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+                .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
 
             const commandSubFolders = fs.readdirSync('./commands/').filter(f => !f.endsWith('.js'))
             console.log(commandSubFolders)
@@ -34,7 +34,7 @@ module.exports = {
             let helpembed = new MessageEmbed()
                 .setTitle(`${showncatagory} commands`)
                 .setColor("RED")
-                .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL())
+                .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL() })
 
             client.commands.forEach(command => {
                 if (command.type === catagory.toLowerCase()) {

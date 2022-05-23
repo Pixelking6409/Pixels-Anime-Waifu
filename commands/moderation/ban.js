@@ -10,6 +10,7 @@ module.exports = {
 
     execute(message, args, client) {
         const target = message.mentions.members.first()
+        const targetUser = message.mentions.users.first()
         const reason = args.slice(1).join(" ")
         const modchannel = client.channels.cache.get('977877262227611717');
 
@@ -24,8 +25,8 @@ module.exports = {
         target.ban({ reason: reason })
 
         let banEmbed = new MessageEmbed()
-            .setTitle(`✅ ${target.member.user.username} was Banned!`)
-            .setDescription(`${target.member.user.username} was banned for ${reason}`)
+            .setTitle(`✅ ${targetUser.username} was Banned!`)
+            .setDescription(`${targetUser.username} was banned for ${reason}`)
             .setFooter({ text: "Banned by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 

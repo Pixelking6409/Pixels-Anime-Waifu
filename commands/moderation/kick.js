@@ -10,6 +10,7 @@ module.exports = {
 
     execute(message, args, client) {
         const target = message.mentions.members.first()
+        const targetUser = message.mentions.users.first()
         const reason = args.slice(1).join(" ")
         const modchannel = client.channels.cache.get('977877262227611717');
 
@@ -24,8 +25,8 @@ module.exports = {
         target.kick({ reason: reason })
 
         let KickEmbed = new MessageEmbed()
-            .setTitle(`✅ ${target.member.user.username} was Kicked!`)
-            .setDescription(`${target.member.user.username} was kicked for ${reason}`)
+            .setTitle(`✅ ${targetUser.username} was Kicked!`)
+            .setDescription(`${targetUser.username} was kicked for ${reason}`)
             .setFooter({ text: "Kicked by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 

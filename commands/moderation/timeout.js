@@ -10,6 +10,7 @@ module.exports = {
 
     execute(message, args, client) {
         const target = message.mentions.members.first()
+        const targetUser = message.mentions.users.first()
         const time = args[1]
         const reason = args.slice(2).join(" ")
         const modchannel = client.channels.cache.get('977877262227611717');
@@ -25,8 +26,8 @@ module.exports = {
         target.timeout(time * 1000, reason)
 
         let TimeoutEmbed = new MessageEmbed()
-            .setTitle(`✅ ${target.member.user.username} was Timed out!`)
-            .setDescription(`${target.member.user.username} was timed out for ${reason}`)
+            .setTitle(`✅ ${targetUser.username} was Timed out!`)
+            .setDescription(`${targetUser.username} was timed out for ${reason}`)
             .setFooter({ text: "Timed out by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 
