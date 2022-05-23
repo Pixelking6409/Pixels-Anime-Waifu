@@ -24,8 +24,8 @@ module.exports = {
         target.ban({ reason: reason })
 
         let banEmbed = new MessageEmbed()
-            .setTitle(`✅ ${target.username} was Banned!`)
-            .setDescription(`${taget.username} was banned for ${reason}`)
+            .setTitle(`✅ ${target.member.username} was Banned!`)
+            .setDescription(`${taget.member.username} was banned for ${reason}`)
             .setFooter({ text: "Banned by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 
