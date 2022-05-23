@@ -15,6 +15,7 @@ module.exports = {
             .setTitle("Pixel's Bitch Boy Queue")
             .setColor("GREEN")
             .setFooter({ text: "Requested by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         let songs = guildQueue.songs
         let string = '';

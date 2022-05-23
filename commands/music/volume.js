@@ -19,6 +19,7 @@ module.exports = {
             .setDescription("Volume set to " + args[0])
             .setColor("GREEN")
             .setFooter({ text: "Requested by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         message.channel.send({ embeds: [volumeembed] })
     }

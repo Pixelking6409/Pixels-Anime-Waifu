@@ -17,6 +17,7 @@ module.exports = {
             .setTitle("Queue Cleared")
             .setDescription("Queue was cleared by " + message.author.username)
             .setColor("RED")
+            .setTimestamp()
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
 
         message.channel.send({ embeds: [clearembed] })

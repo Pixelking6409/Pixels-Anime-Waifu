@@ -17,6 +17,7 @@ module.exports = {
             .setTitle("Song Loop")
             .setDescription("This song is now looped")
             .setColor("GREEN")
+            .setTimestamp()
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
 
         message.channel.send({ embeds: [loopembed] })

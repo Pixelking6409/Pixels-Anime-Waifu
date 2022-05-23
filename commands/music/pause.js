@@ -16,6 +16,7 @@ module.exports = {
             .setTitle("Song Paused")
             .setDescription("Song was paused by " + message.author.username)
             .setColor("RED")
+            .setTimestamp()
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
 
         message.channel.send({ embeds: [pauseembed] })

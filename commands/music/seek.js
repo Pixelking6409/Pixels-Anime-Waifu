@@ -17,6 +17,7 @@ module.exports = {
             .setDescription("Song seeked to " + args[0] * 1000)
             .setColor("GREEN")
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         try {
             guildQueue.seek(parseInt(args[0]) * 1000);

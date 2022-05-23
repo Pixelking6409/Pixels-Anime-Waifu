@@ -17,6 +17,7 @@ module.exports = {
             .setTitle("Bot Leave")
             .setDescription("Music bot has left the channel")
             .setColor("RED")
+            .setTimestamp()
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
 
         message.channel.send({ embeds: [leaveembed] })

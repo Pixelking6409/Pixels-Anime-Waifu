@@ -18,6 +18,7 @@ module.exports = {
             .setDescription("Loop has started for the queue")
             .setColor("GREEN")
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         message.channel.send({ embeds: [queueloopembed] })
 

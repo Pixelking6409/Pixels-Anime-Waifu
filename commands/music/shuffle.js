@@ -17,6 +17,7 @@ module.exports = {
             .setDescription("Queue was shuffled by " + message.author.username)
             .setColor("GREEN")
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         message.channel.send({ embeds: [clearembed] })
 

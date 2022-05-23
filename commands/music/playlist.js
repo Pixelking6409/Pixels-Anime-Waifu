@@ -22,6 +22,7 @@ module.exports = {
             .setDescription(`${message.author.username} requested a number of songs`)
             .setFooter({ text: "Requested by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setColor("GREEN")
+            .setTimestamp()
 
         message.channel.send({ embeds: [playlistembed] })
     }

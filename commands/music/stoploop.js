@@ -19,6 +19,7 @@ module.exports = {
             .setDescription("Loop has stopped")
             .setColor("RED")
             .setFooter({ text: "Requested by " + message.author.username, iconURL: message.author.displayAvatarURL() })
+            .setTimestamp()
 
         message.channel.send({ embeds: [loopembed] })
 
