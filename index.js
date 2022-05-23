@@ -8,7 +8,7 @@ client.prefix = client.config.prefix
 
 const { Player } = require("discord-music-player");
 const player = new Player(client, {
-    leaveOnEmpty: true,
+    leaveOnEmpty: false,
     leaveOnEnd: false,
 });
 client.player = player;
