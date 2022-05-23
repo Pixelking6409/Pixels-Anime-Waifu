@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 3,
 
     async execute(message, args, client) {
-        const modchannel = client.channels.cache.get('977877262449913867');
+        const modchannel = client.channels.cache.get('977877262227611717');
 
         if (!message.member.permissions.has('KICK_MEMBERS')) return message.reply("You dumbass nigger you cant clear messages!")
 

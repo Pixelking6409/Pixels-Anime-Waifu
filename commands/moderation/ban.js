@@ -11,7 +11,7 @@ module.exports = {
     execute(message, args, client) {
         const target = message.mentions.members.first()
         const reason = args.slice(1).join(" ")
-        const modchannel = client.channels.cache.get('977877262449913867');
+        const modchannel = client.channels.cache.get('977877262227611717');
 
         if (!message.member.permissions.has('BAN_MEMBERS')) return message.reply("You dumbass nigger you cant ban people!")
 
