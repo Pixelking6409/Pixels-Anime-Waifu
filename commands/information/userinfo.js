@@ -9,8 +9,8 @@ module.exports = {
     cooldown: 5,
 
     execute (message, args, client) {
-        let targetMember =  message.guild.members.cache.get(args[0]) || message.mentions.members.first() || message.author
-        let targetUser = client.users.cache.get(args[0]) || message.mentions.users.first() || message.member
+        let targetMember =  message.guild.members.cache.get(args[0]) || message.mentions.members.first() || message.member
+        let targetUser = client.users.cache.get(args[0]) || message.mentions.users.first() || message.author
 
         let string = ""
         
