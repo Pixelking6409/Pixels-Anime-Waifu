@@ -14,7 +14,7 @@ module.exports = {
 
         let r = message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
 
-        message.guild.members.forEach(m => {
+        message.guild.members.cache.forEach(m => {
             m.roles.add(r)
             message.channel.send(`<@${m.id}> was added to <@&${r.id}>`)
             .then(msg => {
