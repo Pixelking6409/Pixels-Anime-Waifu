@@ -24,8 +24,8 @@ module.exports = {
         target.kick({ reason: reason })
 
         let KickEmbed = new MessageEmbed()
-            .setTitle(`✅ ${target.member.username} was Kicked!`)
-            .setDescription(`${target.member.username} was kicked for ${reason}`)
+            .setTitle(`✅ ${target.member.user.username} was Kicked!`)
+            .setDescription(`${target.member.user.username} was kicked for ${reason}`)
             .setFooter({ text: "Kicked by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 
