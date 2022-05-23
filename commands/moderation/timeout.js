@@ -26,7 +26,7 @@ module.exports = {
 
         let TimeoutEmbed = new MessageEmbed()
             .setTitle(`✅ ${target.username} was Timed out!`)
-            .setDescription(`${taget.username} was timed out for ${reason}`)
+            .setDescription(`${target.username} was timed out for ${reason}`)
             .setFooter({ text: "Timed out by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
 
