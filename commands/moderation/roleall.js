@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-const Captcha = require("@haileybot/captcha-generator");
 
 module.exports = {
     name: "roleall",
