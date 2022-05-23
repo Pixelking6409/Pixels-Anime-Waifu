@@ -14,7 +14,7 @@ module.exports = {
         let string = ""
         
         targetMember.roles.cache.forEach(role => {
-            string += `${role.name}, `
+            string += `<@&${role.id}>, `
         })
 
         let userInfo = new MessageEmbed()
@@ -25,10 +25,10 @@ module.exports = {
                 { name: "📆 Joined Date", value: `${targetMember.joinedAt}`, inline: true },
                 { name: '\u200B', value: '\u200B'},
                 { name: "📆 Created On", value: `${targetUser.createdAt}`, inline: true },
-                { name: "🖼 User Avatar", value: `(Link Here)[${targetUser.avatarURL()}]`, inline: true },
+                { name: "🖼 User Avatar", value: `[Link Here](${targetUser.avatarURL()})`, inline: true },
                 { name: "🧻 Roles", value: `${string}`, inline: true },
             )
-            .setFooter({ text: "Banned by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
+            .setFooter({ text: "Requested by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
             .setColor("GREEN")
 
