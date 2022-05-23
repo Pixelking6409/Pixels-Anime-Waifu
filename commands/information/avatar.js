@@ -12,7 +12,7 @@ module.exports = {
         let targetMember =  message.guild.members.cache.get(args[0]) || message.mentions.members.first() || message.author
 
         let userAvatar = new MessageEmbed()
-            .setTitle(`${targetUser.username} Information`)
+            .setTitle(`${targetUser.username} Avatar`)
             .setImage(targetUser.displayAvatarURL())
             .setFooter({ text: "Requested by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
