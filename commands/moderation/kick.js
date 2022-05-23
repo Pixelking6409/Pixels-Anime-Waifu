@@ -29,6 +29,7 @@ module.exports = {
             .setDescription(`${targetUser.username} was kicked for ${reason}`)
             .setFooter({ text: "Kicked by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
+            .setColor("GREEN")
 
         message.channel.send({ embeds: [KickEmbed] })
         modchannel.send({ embeds: [KickEmbed] })

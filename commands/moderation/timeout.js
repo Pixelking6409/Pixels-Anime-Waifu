@@ -30,6 +30,7 @@ module.exports = {
             .setDescription(`${targetUser.username} was timed out for ${reason}`)
             .setFooter({ text: "Timed out by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
+            .setColor("GREEN")
 
         message.channel.send({ embeds: [TimeoutEmbed] })
         modchannel.send({ embeds: [TimeoutEmbed] })

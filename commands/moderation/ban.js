@@ -29,6 +29,7 @@ module.exports = {
             .setDescription(`${targetUser.username} was banned for ${reason}`)
             .setFooter({ text: "Banned by " + message.author.username,  iconURL: message.author.displayAvatarURL() })
             .setTimestamp()
+            .setColor("GREEN")
 
         message.channel.send({ embeds: [banEmbed] })
         modchannel.send({ embeds: [banEmbed] })

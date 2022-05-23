@@ -23,6 +23,7 @@ module.exports = {
                     .setDescription(`${args[0]} messages were cleared`)
                     .setFooter({ text: "Cleared by " + message.author.username, iconURL: message.author.displayAvatarURL() })
                     .setTimestamp()
+                    .setColor("GREEN")
 
                 message.channel.send({ embeds: [PurgeEmbed] })
                 modchannel.send({ embeds: [PurgeEmbed] })
