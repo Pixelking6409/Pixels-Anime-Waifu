@@ -16,6 +16,9 @@
     "url": "https://github.com/Pixelking6409/Discord-Bot-Template-v13/issues"
   },
   "homepage": "https://github.com/Pixelking6409/Discord-Bot-Template-v13#readme",
+  "engines": {
+    "node": "16.5"
+  },
   "dependencies": {
     "discord.js": "^13.6.0",
     "discord-music-player": "^8.3.2",
